@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<job-scheduling-data version="2.0"
+	xmlns="http://www.quartz-scheduler.org/xml/JobSchedulingData"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.quartz-scheduler.org/xml/JobSchedulingData 
+						http://www.quartz-scheduler.org/xml/job_scheduling_data_2_0.xsd">
+
+	<schedule>
+		<job>
+			<name>AJob</name>
+			<group>AGroup</group>
+			<description>Print a welcome message</description>
+			<job-class>com.gmail.andersoninfonet.jsfcomplete.scheduler.MensagemJob</job-class>
+		</job>
+
+		<trigger>
+			<cron>
+				<name>dummyTriggerName</name>
+				<job-name>AJob</job-name>
+				<job-group>AGroup</job-group>
+				<!-- It will run every 7 minutes -->
+				<cron-expression>0 0/7 * * * ?</cron-expression>
+			</cron>
+		</trigger>
+		
+		<job>
+			<name>EnviaEmail</name>
+			<group>Email</group>
+			<description>Envia email's automaticos</description>
+			<job-class>com.gmail.andersoninfonet.jsfcomplete.scheduler.EnviaEmailJob</job-class>
+		</job>
+
+		<trigger>
+			<cron>
+				<name>A cada 5 minutos</name>
+				<job-name>EnviaEmail</job-name>
+				<job-group>Email</job-group>
+				<!-- It will run every 5 minutes -->
+				<cron-expression>0 0/5 * * * ?</cron-expression>
+			</cron>
+		</trigger>
+	</schedule>
+	
+</job-scheduling-data>

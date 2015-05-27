@@ -1,0 +1,26 @@
+<ui:composition template="/WEB-INF/template/layoutPadrao.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="titulo">Relatório de usuários</ui:define>
+    
+    <ui:define name="corpo">
+    	<h:form id="frm" target="_blank">
+	    	<h1>Relatório de usuários</h1>
+	    	
+	    	<p:messages autoUpdate="true" closable="true" />
+	    	
+	    	<p:toolbar style="margin-top: 20px">
+	    		<p:toolbarGroup>
+	    			<p:commandButton value="Emitir" action="#{relatorioUsuarioBean.emitir}"
+	    				ajax="false" />
+	    		</p:toolbarGroup>
+	    	</p:toolbar>
+	    	
+
+    	</h:form>
+    </ui:define>
+</ui:composition>

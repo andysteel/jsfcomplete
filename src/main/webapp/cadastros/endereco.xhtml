@@ -1,0 +1,45 @@
+<ui:composition template="/WEB-INF/template/layoutPadrao.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="titulo">Endereços</ui:define>
+    
+    <ui:define name="corpo">
+    
+    	<h:form id="frm" >
+    		
+    		<p:growl id="msg" autoUpdate="true" widgetVar="growl" />
+    		
+    	</h:form>
+    
+    	<form action="." method="get" id="form">
+    	
+    		<p:panel closable="false" header="Endereço">
+    			<p:panelGrid id="gridEndereco" columns="2">
+    				<p:outputLabel for="cep" value="CEP: "/>
+    				<p:inputMask id="cep" maxlength="9" size="10" required="true"  onblur="pesquisacep(this.value);" mask="99999-999"/>
+    				
+    				<p:outputLabel for="rua" value="RUA: "/>
+    				<p:inputText id="rua" size="60" readonly="true"/>
+    				
+    				<p:outputLabel for="complemento" value="COMPLEMENTO: "/>
+    				<p:inputText id="complemento" size="60" />
+    				
+    				<p:outputLabel for="bairro" value="BAIRRO: "/>
+    				<p:inputText id="bairro" size="50" readonly="true"/>
+    				
+    				<p:outputLabel for="cidade" value="CIDADE: "/>
+    				<p:inputText id="cidade" size="50" readonly="true"/>
+    				
+    				<p:outputLabel for="uf" value="ESTADO: "/>
+    				<p:inputText id="uf" size="3" readonly="true"/>
+    			</p:panelGrid>
+    		</p:panel>
+    		
+    	</form>
+    	
+    </ui:define>
+</ui:composition>
